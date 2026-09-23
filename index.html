@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AidFlow Logistics</title>
+</head>
+<body>
+  <h1>AidFlow Logistics & Compliance</h1>
+  <div id="data-feed">Loading live OCDS data...</div>
+  <script type="module">
+    import { getLiveLogisticsData } from './data.js';
+    getLiveLogisticsData().then(data => {
+      document.getElementById('data-feed').innerText = JSON.stringify(data, null, 2);
+    }).catch(err => {
+      document.getElementById('data-feed').innerText = 'Failed to load live feed.';
+    });
+  </script>
+</body>
+</html>
